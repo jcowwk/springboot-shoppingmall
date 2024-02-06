@@ -6,8 +6,11 @@ import com.example.springbootshoppingmall.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -52,8 +55,22 @@ public class MainController {
     public String Login(UserDto userDto){
         UserEntity userEntity = userDto.toEntity();
 
-        if (userRepository.findById(userEntity.getId()).equals(userEntity.getId()) && userRepository.findById(userEntity.getPw()).equals(userEntity.getPw())) {
+        log.info(userEntity.getId());
+        log.info(userEntity.getPw());
+        log.info(userRepository.findById(userEntity.getId()).toString());
+
+        UserEntity compareEntity = userRepository.findById(userEntity.getId()).orElse(null);
+        if (compareEntity == null) {
+            log.info("check your id");
+            return "redirect:/loginpage";
+        }
+
+        if (userEntity.getId().equals(compareEntity.getId()) && userEntity.getPw().equals(compareEntity.getPw())) {
             log.info("success login!");
+        }
+        else {
+            log.info("check your id or pw");
+            return "redirect:/loginpage";
         }
         return "main";
     }
