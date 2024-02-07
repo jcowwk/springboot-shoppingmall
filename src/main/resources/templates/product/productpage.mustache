@@ -1,6 +1,12 @@
 {{>layouts/header}}
 <div class="product-list">
-    product
+    {{#productList}}
+        <tr>
+            <th></th>
+            <th>{{product_name}}</th>
+            <th>{{price}}</th>
+        </tr>
+    {{/productList}}
 </div>
 <div class="productpage-page">
     <nav aria-label="Page navigation example">

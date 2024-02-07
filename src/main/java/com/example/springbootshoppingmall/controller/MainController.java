@@ -71,7 +71,4 @@ public class MainController {
         }
         return "main";
     }
-
-    @GetMapping("/productpage")
-    public String ProductPage(){ return "product/productpage"; }
 }
