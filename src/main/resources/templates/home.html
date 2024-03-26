@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>home</title>
 </head>
 <body>
     <h1>SpringBoot 쇼핑몰</h1>
-    <a href="member/loginForm">로그인</a>
-    <a href="member/joinForm">회원가입</a>
+    <a th:if="${session.loginEmail != null}" th:text="'안녕하세요, ' + ${session.loginEmail} + '님!'"></a>
+    <p th:if="${session.loginEmail != null}"> <a th:href="@{/order/cart}">장바구니</a></p>
+    <p th:if="${session.loginEmail != null}"> <a th:href="@{/order/detail}">주문내역</a></p>
+
+    <a th:if="${session.loginEmail == null}" href="member/loginForm">로그인</a>
+    <a th:if="${session.loginEmail == null}" href="member/joinForm">회원가입</a>
+
+    <div th:include="product/list.html"></div>
 </body>
 </html>
