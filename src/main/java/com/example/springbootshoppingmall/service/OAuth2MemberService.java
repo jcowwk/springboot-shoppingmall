@@ -45,8 +45,7 @@ public class OAuth2MemberService extends DefaultOAuth2UserService {
         String email = memberInfo.getEmail();
         String phone = memberInfo.getPhone();
 
-        // 일반 유저
-        String role = "ROLE_ADMIN";
+        String role = "ROLE_MEMBER";
 
         // 이메일로 찾기
         Optional<Member> findMember = memberRepository.findByEmail(email);
@@ -57,8 +56,8 @@ public class OAuth2MemberService extends DefaultOAuth2UserService {
                     .name(name)
                     .email(email)
                     .password(encoder.encode("password"))
-                    .role(role)
                     .phone(phone)
+                    .role(role)
                     .provider(provider)
                     .providerId(providerId)
                     .build();

@@ -9,8 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class MemberDTO {
-    private Long memberNum;
-    private String id;
+    private Long id;
     private String password;
     private String name;
     private String phone;
@@ -22,7 +21,6 @@ public class MemberDTO {
     public static MemberDTO toMemberDTO(Member member) {
         MemberDTO memberDTO = new MemberDTO();
 
-        memberDTO.setMemberNum(member.getMemberNum());
         memberDTO.setId(member.getId());
         memberDTO.setPassword(member.getPassword());
         memberDTO.setName(member.getName());

@@ -14,7 +14,25 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public void join(MemberDTO memberDTO) {
-        Member member = Member.toMemberEntity(memberDTO);
-        memberRepository.save(member);
+        Optional<Member> byMemberEmail = memberRepository.findByEmail(memberDTO.getEmail());
+
+        if (byMemberEmail.isEmpty()) {
+            Member member = Member.toMemberEntity(memberDTO);
+            memberRepository.save(member);
+        }
+    }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        Optional<Member> byMemberEmail = memberRepository.findByEmail(memberDTO.getEmail());
+
+        if (byMemberEmail.isPresent()) {
+            Member member = byMemberEmail.get();
+
+            if (member.getPassword().equals(memberDTO.getPassword())) {
+                return MemberDTO.toMemberDTO(member);
+            }
+        }
+
+        return null;
     }
 }

@@ -21,16 +21,14 @@ public class GoogleMemberInfo implements OAuth2MemberInfo {
         return "google";
     }
     @Override
+    public String getRole() { return (String) attributes.get("role"); }
+    @Override
     public String getName() {
         return (String) attributes.get("name");
     }
     @Override
     public String getEmail() {
         return (String) attributes.get("email");
-    }
-    @Override
-    public String getRole() {
-        return (String) attributes.get("role");
     }
     @Override
     public String getPhone() {

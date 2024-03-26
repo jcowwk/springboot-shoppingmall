@@ -13,23 +13,20 @@ public class NaverMemberInfo implements OAuth2MemberInfo {
     public String getProviderId() {
         return (String) attributes.get("id");
     }
-
     public String getProvider() {
         return "naver";
     }
-
+    @Override
     public String getName() {
         return (String) attributes.get("name");
     }
-
+    @Override
+    public String getRole() { return (String) attributes.get("role"); }
+    @Override
     public String getEmail() {
         return (String) attributes.get("email");
     }
-
-    public String getRole() {
-        return (String) attributes.get("role");
-    }
-
+    @Override
     public String getPhone() {
         return (String) attributes.get("phone");
     }

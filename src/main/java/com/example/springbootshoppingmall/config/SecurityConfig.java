@@ -1,7 +1,6 @@
 package com.example.springbootshoppingmall.config;
 
 import com.example.springbootshoppingmall.service.OAuth2MemberService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +22,7 @@ public class SecurityConfig {
                 .csrf((csrf)->
                         csrf.disable())
                 .authorizeRequests()
-                .requestMatchers("/main/**").authenticated()
+                .requestMatchers("/home/**").authenticated()
                 .requestMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().permitAll()
                 .and()

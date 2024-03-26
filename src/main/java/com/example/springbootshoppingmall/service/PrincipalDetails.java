@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-@Getter능
+@Getter
 public class PrincipalDetails implements OAuth2User {
     private Member member;
     private Map<String, Object> attributes;
@@ -19,7 +19,6 @@ public class PrincipalDetails implements OAuth2User {
         this.member = member;
         this.attributes = attributes;
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collect = new ArrayList<>();
@@ -31,7 +30,6 @@ public class PrincipalDetails implements OAuth2User {
         });
         return collect;
     }
-
     @Override
     public String getName() {
         return "name";
