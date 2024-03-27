@@ -7,12 +7,20 @@
 <body>
     <h1>SpringBoot 쇼핑몰</h1>
     <a th:if="${session.loginEmail != null}" th:text="'안녕하세요, ' + ${session.loginEmail} + '님!'"></a>
-    <p th:if="${session.loginEmail != null}"> <a th:href="@{/order/cart}">장바구니</a></p>
-    <p th:if="${session.loginEmail != null}"> <a th:href="@{/order/detail}">주문내역</a></p>
+
+    <a th:if="${session.loginEmail != null}" href="/logout">로그아웃</a> <br><hr>
+    <a th:if="${session.loginEmail != null}" href="/cart">장바구니</a>
+    <a th:if="${session.loginEmail != null}" href="/order">주문내역</a>
 
     <a th:if="${session.loginEmail == null}" href="member/loginForm">로그인</a>
     <a th:if="${session.loginEmail == null}" href="member/joinForm">회원가입</a>
 
-    <div th:include="product/list.html"></div>
+    <a href="board/review/list">리뷰 게시판</a>
+    <a href="board/qna/list">Q&A 게시판</a>
+    <a href="board/notice/list">공지사항</a>
+
+    <hr>
+
+    <div th:insert="product/list.html"></div>
 </body>
 </html>

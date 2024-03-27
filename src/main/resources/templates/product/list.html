@@ -5,7 +5,19 @@
     <title>list</title>
 </head>
 <body>
-    <a>상품 목록</a>
-    <a th:each="product: ${productList}" th:text="${product.productName}"></a>
+    <a>전체</a>
+    <a>아우터</a>
+    <a>상의</a>
+    <a>하의</a>
+    <a>원피스/치마</a>
+    <a>신발</a>
+    <a>etc</a>
+
+    <br><hr>
+    <div th:each="product: ${productList}">
+        <div>
+            <a th:href="@{'/product/detail/' + ${product.productId}}" th:text="${product.productName}"></a>
+        </div>
+    </div>
 </body>
 </html>

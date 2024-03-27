@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+</head>
+<body>
+<div th:if="${productDetail}">
+    <a th:text="${productDetail.productName}"></a>
+    <a th:text="${productDetail.productPrice}"></a>
+    <a th:text="${productDetail.productColor}"></a>
+    <a th:text="${productDetail.productSize}"></a>
+    <br>
+
+    <form action="/cart/put" method="post">
+        <input type="submit" value="담기">
+        <input type="hidden" name="productId" th:value="${productDetail.productId}">
+    </form>
+
+    <form action="/order/put" method="post">
+        <input type="submit" value="주문">
+        <input type="hidden" name="productId" th:value="${productDetail.productId}">
+    </form>
+</div>
+</body>
+</html>

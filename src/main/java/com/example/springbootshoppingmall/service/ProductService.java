@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +25,14 @@ public class ProductService {
         }
 
         return productDTOList;
+    }
+
+    public ProductDTO findById(Long productId) {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if(optionalProduct.isPresent()) {
+            return ProductDTO.toProductDTO(optionalProduct.get());
+        } else {
+            return null;
+        }
     }
 }

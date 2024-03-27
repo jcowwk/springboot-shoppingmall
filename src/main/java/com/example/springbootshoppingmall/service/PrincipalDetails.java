@@ -1,6 +1,7 @@
 package com.example.springbootshoppingmall.service;
 
 import com.example.springbootshoppingmall.entity.Member;
+import jakarta.servlet.http.HttpSession;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.core.user.OAuth2User;

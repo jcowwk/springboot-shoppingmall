@@ -5,6 +5,7 @@ import com.example.springbootshoppingmall.entity.Member;
 import com.example.springbootshoppingmall.entity.NaverMemberInfo;
 import com.example.springbootshoppingmall.entity.OAuth2MemberInfo;
 import com.example.springbootshoppingmall.repository.MemberRepository;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

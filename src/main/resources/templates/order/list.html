@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주문 내역</title>
+</head>
+<body>
+    <a th:if="${session.loginEmail != null}" th:text="${session.loginEmail} + '님의 주문 내역'"></a>
+</body>
+</html>

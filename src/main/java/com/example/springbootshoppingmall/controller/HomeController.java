@@ -27,7 +27,7 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String home(Model model, HttpSession session) {
+    public String home(Model model) {
         List<ProductDTO> productDTOList = productService.findAll();
         model.addAttribute("productList", productDTOList);
         return "home";

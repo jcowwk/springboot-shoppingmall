@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class OrderController {
+public class CartController {
 
-    @GetMapping("/order")
-    public String showOrder() {
-        return "order/list";
+    @GetMapping("/cart")
+    public String showCart() {
+        return "cart/list";
     }
 
-    @PostMapping("/order/put")
-    public String orderPut(HttpSession session) {
+    @PostMapping("/cart/put")
+    public String cartPut(HttpSession session) {
         if (session.getAttribute("loginEmail") == null) {
             return "member/loginForm";
         }
-        return "redirect:/order";
+        return "redirect:/cart";
     }
 }

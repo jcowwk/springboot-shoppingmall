@@ -33,6 +33,8 @@ public class SecurityConfig {
                                 .userInfoEndpoint((userInfoEndpoint) ->
                                         userInfoEndpoint
                                                 .userService(oAuth2MemberService)))
+                .logout((logout)->
+                        logout.logoutSuccessUrl("/"))
                 .build();
     }
 }
