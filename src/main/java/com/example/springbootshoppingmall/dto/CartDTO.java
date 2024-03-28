@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class CartDTO {
 
     private Long cartId;

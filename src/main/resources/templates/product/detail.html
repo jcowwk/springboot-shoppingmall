@@ -22,7 +22,7 @@
         <input type="hidden" name="product_price" th:value="${productDetail.productPrice}">
         <input type="hidden" name="product_color" th:value="${productDetail.productColor}">
         <input type="hidden" name="product_size" th:value="${productDetail.productSize}">
-        <input type="hidden" name="quantity" th:value="${quantity}">
+        <input type="hidden" name="quantity" min="1" value="1">
     </form>
 
     <form action="/order/put" method="post">

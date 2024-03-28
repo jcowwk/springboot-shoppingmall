@@ -36,10 +36,6 @@ public class CartController {
                           @RequestParam("product_size") String product_size,
                           @RequestParam("quantity") int quantity) {
         if (session.getAttribute("loginEmail") == null) {
-            System.out.println(product_id);
-            System.out.println(product_name);
-            System.out.println(product_price);
-            System.out.println(quantity);
             return "member/loginForm";
         }
 
@@ -55,6 +51,8 @@ public class CartController {
         cartDTO.setProduct_size(product_size);
         cartDTO.setQuantity(quantity);
         cartDTO.setMember_id(member_id);
+
+        System.out.println("CartDTO: " + cartDTO);
 
         cartService.addToCart(cartDTO);
         return "redirect:/cart";

@@ -37,12 +37,12 @@ public class Cart {
         Cart cart = new Cart();
 
         cart.setMember_id(cartDTO.getMember_id());
-        cart.setProduct_color(cart.getProduct_color());
-        cart.setQuantity(cart.getQuantity());
-        cart.setProduct_id(cart.getProduct_id());
-        cart.setProduct_price(cart.getProduct_price());
-        cart.setProduct_size(cart.getProduct_size());
-        cart.setProduct_name(cart.getProduct_name());
+        cart.setProduct_color(cartDTO.getProduct_color());
+        cart.setQuantity(cartDTO.getQuantity());
+        cart.setProduct_id(cartDTO.getProduct_id());
+        cart.setProduct_price(cartDTO.getProduct_price());
+        cart.setProduct_size(cartDTO.getProduct_size());
+        cart.setProduct_name(cartDTO.getProduct_name());
 
         return cart;
     }
