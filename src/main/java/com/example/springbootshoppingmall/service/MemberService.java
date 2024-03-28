@@ -35,4 +35,9 @@ public class MemberService {
 
         return null;
     }
+
+    public Long findByEmail(String loginEmail) {
+        Optional<Member> memberOptional = memberRepository.findByEmail(loginEmail);
+        return memberOptional.map(Member::getId).orElse(null);
+    }
 }

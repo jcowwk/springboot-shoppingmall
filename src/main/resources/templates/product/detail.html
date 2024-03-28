@@ -12,14 +12,27 @@
     <a th:text="${productDetail.productSize}"></a>
     <br>
 
+    <label for="quantity">수량:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1">
+
     <form action="/cart/put" method="post">
         <input type="submit" value="담기">
-        <input type="hidden" name="productId" th:value="${productDetail.productId}">
+        <input type="hidden" name="product_id" th:value="${productDetail.productId}">
+        <input type="hidden" name="product_name" th:value="${productDetail.productName}">
+        <input type="hidden" name="product_price" th:value="${productDetail.productPrice}">
+        <input type="hidden" name="product_color" th:value="${productDetail.productColor}">
+        <input type="hidden" name="product_size" th:value="${productDetail.productSize}">
+        <input type="hidden" name="quantity" th:value="${quantity}">
     </form>
 
     <form action="/order/put" method="post">
         <input type="submit" value="주문">
-        <input type="hidden" name="productId" th:value="${productDetail.productId}">
+        <input type="hidden" name="product_id" th:value="${productDetail.productId}">
+        <input type="hidden" name="product_name" th:value="${productDetail.productName}">
+        <input type="hidden" name="product_price" th:value="${productDetail.productPrice}">
+        <input type="hidden" name="product_color" th:value="${productDetail.productColor}">
+        <input type="hidden" name="product_size" th:value="${productDetail.productSize}">
+        <input type="hidden" name="quantity" th:value="${quantity}">
     </form>
 </div>
 </body>
