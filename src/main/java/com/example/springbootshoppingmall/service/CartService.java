@@ -1,10 +1,13 @@
 package com.example.springbootshoppingmall.service;
 
+
 import com.example.springbootshoppingmall.dto.CartDTO;
 import com.example.springbootshoppingmall.entity.Cart;
 import com.example.springbootshoppingmall.repository.CartRepository;
 import lombok.*;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Builder
 @AllArgsConstructor
@@ -17,5 +20,9 @@ public class CartService {
     public void addToCart(CartDTO cartDTO) {
         Cart cart = Cart.toCartEntity(cartDTO);
         cartRepository.save(cart);
+    }
+
+    public List<Cart> getAllCartItems() {
+        return cartRepository.findAll();
     }
 }

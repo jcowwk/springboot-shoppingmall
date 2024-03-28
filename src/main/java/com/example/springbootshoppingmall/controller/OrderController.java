@@ -20,4 +20,9 @@ public class OrderController {
         }
         return "redirect:/order";
     }
+
+    @PostMapping("/order/sheet")
+    public String orderSheet() {
+        return "order/sheet";
+    }
 }

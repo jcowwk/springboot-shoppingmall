@@ -1,15 +1,18 @@
 package com.example.springbootshoppingmall.controller;
 
 import com.example.springbootshoppingmall.dto.CartDTO;
+import com.example.springbootshoppingmall.entity.Cart;
 import com.example.springbootshoppingmall.service.CartService;
 import com.example.springbootshoppingmall.service.MemberService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Controller
 public class CartController {
@@ -23,7 +26,10 @@ public class CartController {
     }
 
     @GetMapping("/cart")
-    public String showCart() {
+    public String showCart(Model model) {
+        List<Cart> cartItems = cartService.getAllCartItems();
+        model.addAttribute("cartItems", cartItems);
+
         return "cart/list";
     }
 

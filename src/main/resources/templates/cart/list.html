@@ -6,5 +6,32 @@
 </head>
 <body>
     <a th:if="${session.loginEmail != null}" th:text="${session.loginEmail} + '님의 장바구니'"></a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>상품번호</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>색상</th>
+            <th>사이즈</th>
+            <th>수량</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${cartItems}">
+            <td th:text="${item.product_id}"></td>
+            <td th:text="${item.product_name}"></td>
+            <td th:text="${item.product_price}"></td>
+            <td th:text="${item.product_color}"></td>
+            <td th:text="${item.product_size}"></td>
+            <td th:text="${item.quantity}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form action="/order/sheet" method="post">
+        <input type="submit" value="결제">
+    </form>
 </body>
 </html>
